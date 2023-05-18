@@ -1,4 +1,4 @@
-// created a blank array and added Pokemon objects to it
+//created a blank array and added Pokemon objects to it
 let pokemonList = [];
 pokemonList = [
   { name: 'Bulbasaur', height: '0.7 m', type: ['Grass', 'Poison'] },
@@ -12,3 +12,14 @@ pokemonList = [
   { name: 'Jigglypuff', height: '0.5 m', type: ['Fairy', 'Normal']},
   { name: 'Primeape', height: '1 m', type: 'Fighting'}
 ];
+
+//for loop that iterates over the objects in the array and prints them to the DOM
+for (let i=0; i < pokemonList.length; i++){
+  document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + ")")
+  
+  //conditional that searches for pokemon over 2 m in height
+  if (pokemonList[i].height > "2 m") {
+    document.write(" - Wow that's big!")
+  }
+  document.write("<br><br>")
+}
