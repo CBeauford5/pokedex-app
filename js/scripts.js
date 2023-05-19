@@ -1,6 +1,6 @@
 // IIFE wrap
 let pokemonRepository = (function () {
-  
+
   // created a blank array and added Pokemon objects to it
   let pokemonList = [];
   pokemonList = [
@@ -44,7 +44,7 @@ let pokemonRepository = (function () {
 // for loop that iterates over the objects in the array and prints them to the DOM
 pokemonRepository.getAll().forEach(function (pokemon) {
   document.write(pokemon.name + " (height: " + pokemon.height + ")");
-  
+
   // conditional that searches for pokemon over 2 m in height
   if (pokemon.height > "2 m") {
     document.write(" - Wow that's big!");
