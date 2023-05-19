@@ -41,6 +41,10 @@ let pokemonRepository = (function () {
   };
 })();
 
+//testing the add function and validation
+pokemonRepository.add({name: 'Mewto', height: '2 m', type: 'Psychic'});
+pokemonRepository.add({name: 'Tom'});
+
 // for loop that iterates over the objects in the array and prints them to the DOM
 pokemonRepository.getAll().forEach(function (pokemon) {
   document.write(pokemon.name + " (height: " + pokemon.height + ")");
