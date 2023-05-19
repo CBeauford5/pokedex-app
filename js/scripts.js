@@ -47,7 +47,7 @@ pokemonRepository.getAll().forEach(function (pokemon) {
   
   // conditional that searches for pokemon over 2 m in height
   if (pokemon.height > "2 m") {
-    document.write(" - Wow that's big!")
+    document.write(" - Wow that's big!");
   }
-  document.write("<br><br>")
+  document.write("<br><br>");
 });
