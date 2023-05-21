@@ -1,12 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: #483D8B;
   background-color: #F0F8FF;
   font-family: copperplate, sans-serif;
   text-align: center;
 }
+
 header {
   text-align: center;
 }
+
 footer {
   text-align: center;
+}
+
+.pokeButton {
+  font-family: inherit;
+  background-color: #6495ED;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid black;
+  transition-duration: 0.2s;
+  transition-property: opacity;
+  margin-bottom: 10px;
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+li {
+  list-style-type: none;
 }
