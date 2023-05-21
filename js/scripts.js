@@ -34,24 +34,38 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
+  //function to add the Pokemons as buttons
+  function addListItem(pokemon) {
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add("pokeButton");
+    listItem.appendChild(button);
+    pokemonList.appendChild(listItem);
+    button.addEventListener('click', function (event) {
+      showDetails(pokemon)
+    });
+  }
+
+  //function to show details about the Pokemon
+  function showDetails(pokemon) {
+    console.log(pokemon.name);
+  }
+  
   //object created to access functions outside of wrap
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
   };
 })();
 
 //testing the add function and validation
-pokemonRepository.add({name: 'Mewto', height: '2 m', type: 'Psychic'});
-pokemonRepository.add({name: 'Tom'});
+pokemonRepository.add({ name: 'Mewto', height: '2 m', type: 'Psychic' });
+pokemonRepository.add({ name: 'Tom' });
 
-// for loop that iterates over the objects in the array and prints them to the DOM
+// for loop that iterates over the objects in the array and adds Pokemon name as a button
 pokemonRepository.getAll().forEach(function (pokemon) {
-  document.write(pokemon.name + " (height: " + pokemon.height + ")");
-
-  // conditional that searches for pokemon over 2 m in height
-  if (pokemon.height > "2 m") {
-    document.write(" - Wow that's big!");
-  }
-  document.write("<br><br>");
+  pokemonRepository.addListItem(pokemon);
 });
