@@ -17,11 +17,15 @@ footer {
   text-align: center;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .pokeButton {
   font-family: inherit;
   background-color: #6495ED;
   color: #fff;
-  text-decoration: none;
   padding: 8px;
   height: auto;
   border-radius: 10px;
@@ -31,12 +35,13 @@ footer {
   margin-bottom: 10px;
 }
 
-button:hover,
-button:focus {
+.pokeButton:hover,
+.pokeButton:focus {
   cursor: pointer;
   opacity: 0.8;
 }
 
-li {
+.pokemon-list {
   list-style-type: none;
+  text-align: center;
 }
