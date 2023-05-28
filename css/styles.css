@@ -8,6 +8,11 @@ header {
   margin-bottom: 20px;
 }
 
+footer {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -127,7 +132,7 @@ img {
 @media all and (max-width: 750px) {
   .pokemon-list {
     display: grid;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     border-style: none;
   }
