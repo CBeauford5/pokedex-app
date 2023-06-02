@@ -28,13 +28,13 @@ let pokemonRepository = (function () {
     let pokemonList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
     listItem.classList.add('list-group-item');
-    
+
     let button = document.createElement('button');
     button.innerText = pokemon.name;
     button.classList.add('btn');
     button.setAttribute('data-toggle', 'modal');
     button.setAttribute('data-target', '#exampleModal');
-    
+
     listItem.appendChild(button);
     pokemonList.appendChild(listItem);
     button.addEventListener('click', function (event) {
@@ -63,15 +63,21 @@ let pokemonRepository = (function () {
   // function to load the details of Pokemon from the API
   function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = details.types;
-    }).catch(function (e) {
-      console.error(e);
-    });
+    return fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (details) {
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.types = [];
+        for (let i = 0; i < details.types.length; i++) {
+          item.types.push(' ' + details.types[i].type.name);
+        }
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
   }
 
   // function to display modal after loading details
@@ -85,13 +91,17 @@ let pokemonRepository = (function () {
   function showModal(pokemon) {
     let modalTitle = document.querySelector('.modal-title');
     modalTitle.innerText = pokemon.name;
-    
+
     let pokemonImage = document.querySelector('.pokemon-image');
     pokemonImage.src = pokemon.imageUrl;
 
     let pokemonHeight = document.querySelector('.pokemon-height');
     pokemonHeight.innerText = 'Height: ' + pokemon.height;
-    
+
+    let pokemonTypes = document.querySelector('.pokemon-types');
+    pokemonTypes.innerText = 'Types: ' + pokemon.types;
+
+
   }
 
   return {
