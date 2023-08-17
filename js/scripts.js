@@ -123,3 +123,14 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
+
+// search functionality for displayed Pokemon
+document.getElementById("searchBar").addEventListener("keyup", (e) => {
+  let t = e.target.value.toLowerCase(),
+    o = pokemonRepository.getAll().filter((e) => e.name.toLowerCase().includes(t));
+  (document.querySelector(".pokemon-list").innerHTML = ""),
+    o.forEach((e) => {
+      pokemonRepository.addListItem(e);
+    });
+});
